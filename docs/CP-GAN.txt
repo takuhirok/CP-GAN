@@ -1,0 +1,6 @@
+@inproceedings{kaneko2019CP-GAN,
+  title={Class-Distinct and Class-Mutual Image Generation with GANs},
+  author={Kaneko, Takuhiro and Ushiku, Yoshitaka and Harada, Tatsuya},
+  booktitle={Proceedings of the British Machine Vision Conference},
+  year={2019}
+}

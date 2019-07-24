@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-138229553-2"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-138229553-2');
+    </script>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <title>CP-GAN</title>
+  </head>
+
+  <style type="text/css">
+    footer {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    }
+    .bg-whitesmoke {
+    background-color: whitesmoke
+    }
+    .thumbnail-shadow {
+    filter: drop-shadow(5px 5px 5px #aaa);
+    }
+    table{
+    margin: 0 auto
+    }
+  </style>
+  
+  <body>
+    <header>
+      <div class="jumbotron text-center bg-whitesmoke">
+	<div class="container">
+	  <h2>Class-Distinct and Class-Mutual Image Generation with GANs</h2>
+	  <p class="lead">
+	    <a href="http://www.kecl.ntt.co.jp/people/kaneko.takuhiro/">Takuhiro Kaneko</a><sup>1</sup>&nbsp;&nbsp;&nbsp;
+	    <a href="https://yoshitakaushiku.net/">Yoshitaka Ushiku</a><sup>1</sup>&nbsp;&nbsp;&nbsp;
+	    <a href="https://www.mi.t.u-tokyo.ac.jp/harada/">Tatsuya Harada</a><sup>1,2</sup>&nbsp;&nbsp;&nbsp;<br>
+	    <sup>1</sup>The University of Tokyo&nbsp;&nbsp;&nbsp;
+	    <sup>2</sup>RIKEN
+	  </p>
+	  <p class="lead">
+	  BMVC 2019 (Spotlight)<br>
+	  <a href="https://arxiv.org/abs/1811.11163">[Paper]</a>
+	  <a href="https://github.com/takuhirok/CP-GAN/">[Code]</a>
+	  <a href="CP-GAN_slides.pdf">[Slides]</a>
+	  </p>
+	</div>
+      </div>
+    </header>
+
+    <main>
+      <div class="container">
+	<figure class="figure text-center">
+	  <p>
+	    <a name="fig1"><img class="w-100" src="images/examples.png" alt="examples"></a>
+	  </p>
+	  <figcaption class="figure-caption text-left">
+	    Figure 1. Example of class-distinct and class-mutual image generation. Given class-overlapping data (a), a typical class-conditional model (e.g., AC-GAN; (b)) fits the generator conditioned on discrete labels (b-i) and generates data of each class separately (b-ii) even if classes overlap. In contrast, our class-distinct and class-mutual image generation model (i.e., CP-GAN (c)) represents between-class relationships in the generator input using the classifier’s posterior (c-i) and generates an image conditioned on the class specificity (c-ii).
+	  </figcaption>
+	</figure>
+
+	<p>
+	  <strong>NOTE:</strong> In CVPR 2019, we proposed <strong>label-noise robust GAN</strong> (<a href="https://arxiv.org/abs/1811.11165"><strong>rGAN</strong></a>) <a href="#ref1">[1]</a>, which is another conditional extension of GAN for noisy labeled data. Check it from <a href="https://takuhirok.github.io/rGAN/"><strong>HERE</strong></a>!
+	</p>
+
+	<h3 class="text-center">Abstract</h3>
+	<p>
+	  Class-conditional extensions of generative adversarial networks (GANs), such as auxiliary classifier GAN (AC-GAN) and conditional GAN (cGAN), have garnered attention owing to their ability to decompose representations into class labels and other factors and to boost the training stability. However, a limitation is that they assume that each class is separable and ignore the relationship between classes even though class overlapping frequently occurs in a real-world scenario when data are collected on the basis of diverse or ambiguous criteria. To overcome this limitation, we address a novel problem called <strong>class-distinct and class-mutual image generation</strong>, in which the goal is to construct a generator that can capture between-class relationships and generate an image selectively conditioned on the class specificity. To solve this problem without additional supervision, we propose <strong>classifier's posterior GAN (CP-GAN)</strong>, in which we redesign the generator input and the objective function of AC-GAN for <em>class-overlapping</em> data. Precisely, we incorporate the classifier's posterior into the generator input and optimize the generator so that the classifier's posterior of generated data corresponds with that of real data. We demonstrate the effectiveness of CP-GAN using both controlled and real-world class-overlapping data with a model configuration analysis and comparative study.
+	</p>
+	
+	<h3 class="text-center">Paper</h3>
+	<p>
+	  <table>
+	    <tbody>
+	      <tr>
+		<td class="text-center">
+		  <p>
+		    <a href="https://arxiv.org/abs/1811.11163" class="lead">[Paper]</a><br>
+		    arXiv:1811.11163<br>Nov. 2018.
+		  </p>
+		  <p>
+		    <a href="CP-GAN_slides.pdf" class="lead">[Slides]</a>
+		  </p>
+		</td>
+	      </tr>
+	    </tbody>
+	  </table>
+	</p>
+
+	<h5 class="text-center">Citation</h5>
+	<p class="text-center">
+	  Takuhiro Kaneko, Yoshitaka Ushiku, and Tatsuya Harada.<br>
+	  Class-Distinct and Class-Mutual Image Generation with GANs. In BMVC, 2019.<br>
+	  <a href="CP-GAN.txt" class="lead">[BibTex]</a>
+	</p>
+	
+	<h3 class="text-center">Code</h3>
+	<p class="text-center lead">
+	  <a href="https://github.com/takuhirok/CP-GAN/">[PyTorch]</a>
+	</p>
+
+	<h3 class="text-center">Overview</h3>
+	<p>
+	  Our goal is, given <em>class-overlapping</em> data, to construct a <strong>class-distinct and class-mutual image generator</strong> that can selectively generate an image conditioned on the <em>class specificity</em>. To solve this problem, we propose <strong>CP-GAN</strong> (b), in which we redesign the generator input and the objective function of AC-GAN <a href="#ref2">[2]</a> (a). Precisely, we employ the classifier’s posterior to represent the between-class relationships and incorporate it into the generator input. Additionally, we optimize the generator so that the classifier’s posterior of generated data corresponds with that of real data. This formulation allows CP-GAN to capture the between-class relationships in a data-driven manner and to generate an image conditioned on the <em>class specificity</em>.
+	</p>
+	
+	<figure class="figure text-center">
+	  <p>
+	    <a name="fig2"><img class="w-100" src="images/networks.png" alt="examples"></a>
+	  </p>
+	  <figcaption class="figure-caption text-left">
+	    Figure 2. Comparison of AC-GAN (a) and CP-GAN (b). We denote the generator, discriminator, and auxiliary classifier by <em>G</em>, <em>D</em>, and <em>C</em>, respectively. A green rectangle indicates a <em>discrete label</em> (or hard label), while an orange rectangle indicates a <em>classifier’s posterior</em> (or soft label). In our CP-GAN (b), we redesign the <strong>generator input</strong> and the <strong>objective function</strong> of AC-GAN (a) to construct a generator that is conditioned on the <em>class specificity</em>.
+	  </figcaption>
+	</figure>
+
+	<h3 class="text-center">Samples</h3>
+	<h4 class="text-center">CIFAR-10to5</h4>
+	
+	<figure class="figure text-center">
+	  <p>
+	    <a name="fig3"><img class="w-75" src="images/overlap.png" alt="CIFAR-10to5 class-overlapping setting"></a>
+	  </p>
+	  <figcaption class="figure-caption text-left">
+	    Figure 3. Illustration of class overlapping settings. The original <strong>ten</strong> classes (0,...,9; defined in (a)) are divided into <strong>five</strong> classes (<em>A</em>,...,<em>E</em>) with class overlapping, as shown in (b).
+	  </figcaption>
+	</figure>
+	
+	<figure class="figure text-center">
+	  <p>
+	    <a name="fig4"><img class="w-75" src="images/samples.png" alt="CIFAR-10to5 samples"></a>
+	  </p>
+	  <figcaption class="figure-caption text-left">
+	    Figure 4. Generated image samples on CIFAR-10to5. Each column shows samples associated with the same class-distinct and class-mutual states: <em>airplane</em>, <em>automobile</em>, <em>bird</em>, <em>cat</em>, <em>deer</em>, <em>dog</em>, <em>frog</em>, <em>horse</em>, <em>ship</em>, and <em>truck</em>, respectively, from left to right. Each row includes samples generated from a fixed <em><strong>z</strong><sup>g</sup></em> and a varied <em><strong>y</strong><sup>g</sup></em>. CP-GAN (b) succeeds in selectively generating class-distinct (red font) and class-mutual (blue font) images, whereas AC-GAN (a) fails to do so.
+	  </figcaption>
+	</figure>
+
+	<h3 class="text-center">Acknowledgement</h3>
+	<p>
+	  We would like to thank Hiroharu Kato, Atsuhiro Noguchi, and Antonio Tejero-de-Pablos for helpful discussions. This work was supported by JSPS KAKENHI Grant Number JP17H06100, partially supported by JST CREST Grant Number JPMJCR1403, Japan, and partially supported by the Ministry of Education, Culture, Sports, Science and Technology (MEXT) as ``Seminal Issue on Post-K Computer.''
+	</p>
+
+	<h3 class="text-center">Related work</h3>
+	<p>
+	  <a name="ref1" class="text-primary">[1]</a>
+	  T. Kaneko, Y. Ushiku, T. Harada.
+	  Label-Noise Robust Generative Adversarial Networks,
+	  In CVPR, 2019.
+	  <a href="https://arxiv.org/abs/1811.11165">[arXiv]</a>
+	  <a href="https://takuhirok.github.io/rGAN/">[Project]</a>
+	  <a href="https://github.com/takuhirok/rGAN/">[Code]<br>
+	  
+	  <a name="ref2" class="text-primary">[2]</a>
+	  A. Odena, C. Olah, and J. Shlens.
+	  Conditional image synthesis with auxiliary classifier GANs.
+	  In ICML, 2017.
+	  <a href="https://arxiv.org/abs/1610.09585">[arXiv]</a>		</p>
+      </div>
+    </main>
+
+    <footer class="text-center bg-whitesmoke">      
+      <div class="container">
+	<small>
+	  <strong>Class-Distinct and Class-Mutual Image Generation with GANs</strong><br>
+	  <a href="http://www.kecl.ntt.co.jp/people/kaneko.takuhiro/">Takuhiro Kaneko</a> | t.kaneko at mi.t.u-tokyo.ac.jp
+	</small>
+      </div>
+    </footer>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  </body>
+</html>
