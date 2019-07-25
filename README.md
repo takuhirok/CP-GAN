@@ -7,7 +7,7 @@ This repository provides PyTorch implementation for **classifier's posterior GAN
 <img src="docs/images/examples.png" width=100% alt="CP-GAN examples">
 
 **NOTE:**
-In CVPR 2019, we proposed **label-noise robust GAN** ([**rGAN**](https://arxiv.org/abs/1811.11165)) [1], which is another conditional extension of GAN for noisy labeled data. Check it from [**HERE**](https://takuhirok.github.io/rGAN/)!
+In CVPR 2019, we proposed **label-noise robust GAN** ([**rGAN**](https://arxiv.org/abs/1811.11165)) [1], which is another conditional extension of GAN for *noisy labeled* data. Check it from [**HERE**](https://takuhirok.github.io/rGAN/)!
 
 ## Paper
 
@@ -15,8 +15,8 @@ Class-Distinct and Class-Mutual Image Generation with GANs.<br>
 [Takuhiro Kaneko](http://www.kecl.ntt.co.jp/people/kaneko.takuhiro/), [Yoshitaka Ushiku](https://yoshitakaushiku.net/), and [Tatsuya Harada](https://www.mi.t.u-tokyo.ac.jp/harada/).<br>
 In BMVC 2019 (Spotlight).
 
-[[Project]](https://takuhirok.github.io/CP-GAN/)
 [[Paper]](https://arxiv.org/abs/1811.11163)
+[[Project]](https://takuhirok.github.io/CP-GAN/)
 [[Slides]](docs/CP-GAN_slides.pdf)
 
 ## Overview
@@ -110,5 +110,5 @@ If you use this code for your research, please cite our paper.
 
 ## Related work
 
-1. T. Kaneko, Y. Ushiku, T. Harada. Label-Noise Robust Generative Adversarial Networks, In CVPR, 2019. [[arXiv]](https://arxiv.org/abs/1811.11165) [[Project]](https://takuhirok.github.io/rGAN/) [[Code]](https://github.com/takuhirok/rGAN/)
+1. T. Kaneko, Y. Ushiku, T. Harada. Label-Noise Robust Generative Adversarial Networks, In CVPR, 2019. [[Paper]](https://arxiv.org/abs/1811.11165) [[Project]](https://takuhirok.github.io/rGAN/) [[Code]](https://github.com/takuhirok/rGAN/)
 2. A. Odena, C. Olah, and J. Shlens. Conditional image synthesis with auxiliary classifier GANs. In ICML, 2017. [[arXiv]](https://arxiv.org/abs/1610.09585)
