@@ -18,6 +18,7 @@ In BMVC 2019 (Spotlight).
 [[Paper]](https://arxiv.org/abs/1811.11163)
 [[Project]](https://takuhirok.github.io/CP-GAN/)
 [[Slides]](docs/CP-GAN_slides.pdf)
+[[Poster]](docs/CP-GAN_poster.pdf)
 
 ## Overview
 
