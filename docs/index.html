@@ -70,12 +70,18 @@
 	</figure>
 
 	<p>
-	  <strong>NOTE:</strong> In CVPR 2019, we proposed <strong>label-noise robust GAN</strong> (<a href="https://arxiv.org/abs/1811.11165"><strong>rGAN</strong></a>) <a href="#ref1">[1]</a>, which is another conditional extension of GAN for <em>noisy labeled</em> data. Check it from <a href="https://takuhirok.github.io/rGAN/"><strong>HERE</strong></a>!
+	  <strong>Note:</strong> In our other studies, we have also proposed GAN for <em>label noise</em> and GAN for <em>image noise</em>. Please check them from the links below.
+	</p>
+	<p class="text-center">
+	  <a href="https://takuhirok.github.io/rGAN/"><strong>Label-noise robust GAN (rGAN)</strong></a> (CVPR 2019):
+	  GAN for <em>label noise</em><br>
+	  <a href="https://takuhirok.github.io/NR-GAN/"><strong>Noise robust GAN (NR-GAN)</strong></a> (CVPR 2020):
+	  GAN for <em>image noise</em>
 	</p>
 
 	<h3 class="text-center">Abstract</h3>
 	<p>
-	  Class-conditional extensions of generative adversarial networks (GANs), such as auxiliary classifier GAN (AC-GAN) and conditional GAN (cGAN), have garnered attention owing to their ability to decompose representations into class labels and other factors and to boost the training stability. However, a limitation is that they assume that each class is separable and ignore the relationship between classes even though class overlapping frequently occurs in a real-world scenario when data are collected on the basis of diverse or ambiguous criteria. To overcome this limitation, we address a novel problem called <strong>class-distinct and class-mutual image generation</strong>, in which the goal is to construct a generator that can capture between-class relationships and generate an image selectively conditioned on the class specificity. To solve this problem without additional supervision, we propose <strong>classifier's posterior GAN (CP-GAN)</strong>, in which we redesign the generator input and the objective function of AC-GAN for <em>class-overlapping</em> data. Precisely, we incorporate the classifier's posterior into the generator input and optimize the generator so that the classifier's posterior of generated data corresponds with that of real data. We demonstrate the effectiveness of CP-GAN using both controlled and real-world class-overlapping data with a model configuration analysis and comparative study.
+	  Class-conditional extensions of generative adversarial networks (GANs), such as auxiliary classifier GAN (AC-GAN) and conditional GAN (cGAN), have garnered attention owing to their ability to decompose representations into class labels and other factors and to boost the training stability. However, a limitation is that they assume that each class is separable and ignore the relationship between classes even though class overlapping frequently occurs in a real-world scenario when data are collected on the basis of diverse or ambiguous criteria. To overcome this limitation, we address a novel problem called <em>class-distinct and class-mutual image generation</em>, in which the goal is to construct a generator that can capture between-class relationships and generate an image selectively conditioned on the class specificity. To solve this problem without additional supervision, we propose <strong>classifier's posterior GAN (CP-GAN)</strong>, in which we redesign the generator input and the objective function of AC-GAN for <em>class-overlapping</em> data. Precisely, we incorporate the classifier's posterior into the generator input and optimize the generator so that the classifier's posterior of generated data corresponds with that of real data. We demonstrate the effectiveness of CP-GAN using both controlled and real-world class-overlapping data with a model configuration analysis and comparative study.
 	</p>
 	
 	<h3 class="text-center">Paper</h3>
@@ -116,7 +122,7 @@
 
 	<h3 class="text-center">Overview</h3>
 	<p>
-	  Our goal is, given <em>class-overlapping</em> data, to construct a <strong>class-distinct and class-mutual image generator</strong> that can selectively generate an image conditioned on the <em>class specificity</em>. To solve this problem, we propose <strong>CP-GAN</strong> (b), in which we redesign the generator input and the objective function of AC-GAN <a href="#ref2">[2]</a> (a). Precisely, we employ the classifier’s posterior to represent the between-class relationships and incorporate it into the generator input. Additionally, we optimize the generator so that the classifier’s posterior of generated data corresponds with that of real data. This formulation allows CP-GAN to capture the between-class relationships in a data-driven manner and to generate an image conditioned on the <em>class specificity</em>.
+	  Our goal is, given <em>class-overlapping</em> data, to construct a <em>class-distinct and class-mutual image generator</em> that can selectively generate an image conditioned on the <em>class specificity</em>. To solve this problem, we propose <strong>CP-GAN</strong> (b), in which we redesign the generator input and the objective function of AC-GAN <a href="#ref2">[2]</a> (a). Precisely, we employ the classifier’s posterior to represent the between-class relationships and incorporate it into the generator input. Additionally, we optimize the generator so that the classifier’s posterior of generated data corresponds with that of real data. This formulation allows CP-GAN to capture the between-class relationships in a data-driven manner and to generate an image conditioned on the <em>class specificity</em>.
 	</p>
 	
 	<figure class="figure text-center">
@@ -128,15 +134,15 @@
 	  </figcaption>
 	</figure>
 
-	<h3 class="text-center">Samples</h3>
-	<h4 class="text-center">CIFAR-10to5</h4>
+	<h3 class="text-center">Examples of generated images</h3>
+	<h5 class="text-center">CIFAR-10to5</h5>
 	
 	<figure class="figure text-center">
 	  <p>
 	    <a name="fig3"><img class="w-75" src="images/overlap.png" alt="CIFAR-10to5 class-overlapping setting"></a>
 	  </p>
 	  <figcaption class="figure-caption text-left">
-	    Figure 3. Illustration of class overlapping settings. The original <strong>ten</strong> classes (0,...,9; defined in (a)) are divided into <strong>five</strong> classes (<em>A</em>,...,<em>E</em>) with class overlapping, as shown in (b).
+	    Figure 3. Illustration of class overlapping settings. The original <strong>ten</strong> classes (0, ..., 9; defined in (a)) are divided into <strong>five</strong> classes (<em>A</em>, ..., <em>E</em>) with class overlapping, as shown in (b).
 	  </figcaption>
 	</figure>
 	
@@ -149,7 +155,7 @@
 	  </figcaption>
 	</figure>
 
-	<h3 class="text-center">Acknowledgement</h3>
+	<h3 class="text-center">Acknowledgment</h3>
 	<p>
 	  We would like to thank Hiroharu Kato, Atsuhiro Noguchi, and Antonio Tejero-de-Pablos for helpful discussions. This work was supported by JSPS KAKENHI Grant Number JP17H06100, partially supported by JST CREST Grant Number JPMJCR1403, Japan, and partially supported by the Ministry of Education, Culture, Sports, Science and Technology (MEXT) as ``Seminal Issue on Post-K Computer.''
 	</p>
@@ -158,17 +164,18 @@
 	<p>
 	  <a name="ref1" class="text-primary">[1]</a>
 	  T. Kaneko, Y. Ushiku, T. Harada.
-	  Label-Noise Robust Generative Adversarial Networks,
-	  In CVPR, 2019.
-	  <a href="https://arxiv.org/abs/1811.11165">[Paper]</a>
-	  <a href="https://takuhirok.github.io/rGAN/">[Project]</a>
-	  <a href="https://github.com/takuhirok/rGAN/">[Code]<br>
+	  <a href="https://takuhirok.github.io/rGAN/"><strong>Label-Noise Robust Generative Adversarial Networks</strong></a>.
+	  In CVPR, 2019.<br>
 	  
 	  <a name="ref2" class="text-primary">[2]</a>
 	  A. Odena, C. Olah, and J. Shlens.
-	  Conditional image synthesis with auxiliary classifier GANs.
-	  In ICML, 2017.
-	  <a href="https://arxiv.org/abs/1610.09585">[Paper]</a>		</p>
+	  <a href="https://arxiv.org/abs/1610.09585"><strong>Conditional image synthesis with auxiliary classifier GANs</strong></a>.
+	  In ICML, 2017.<br>
+
+	  <a name="ref3" class="text-primary">[3]</a>
+	  T. Kaneko, T. Harada.
+	  <a href="https://takuhirok.github.io/NR-GAN/"><strong>Noise Robust Generative Adversarial Networks</strong></a>.
+	  In CVPR, 2020.
       </div>
     </main>
 
