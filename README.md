@@ -5,10 +5,11 @@ This repository provides PyTorch implementation for [**classifier's posterior GA
 <img src="docs/images/examples.png" width=100% alt="CP-GAN examples">
 
 **Note:**
-In our other studies, we have also proposed GAN for *label noise* and GAN for *image noise*. Please check them from the links below.
+In our other studies, we have also proposed GAN for *label noise*, GAN for *image noise*, and GAN for *blur, noise, and compression*. Please check them from the links below.
 
 - [**Label-noise robust GAN (rGAN)**](https://takuhirok.github.io/rGAN/) (CVPR 2019): GAN for *label noise*
 - [**Noise robust GAN (NR-GAN)**](https://takuhirok.github.io/NR-GAN/) (CVPR 2020): GAN for *image noise*
+- [**Blur, noise, and compression robust GAN (BNCR-GAN)**](https://takuhirok.github.io/BNCR-GAN/) (CVPR 2021): GAN for *blur, noise, and compression*
 
 ## Paper
 
@@ -112,6 +113,7 @@ If you use this code for your research, please cite our paper.
 
 ## Related work
 
-1. T. Kaneko, Y. Ushiku, T. Harada. [**Label-Noise Robust Generative Adversarial Networks**](https://takuhirok.github.io/rGAN/), In CVPR, 2019.
-2. A. Odena, C. Olah, and J. Shlens. [**Conditional image synthesis with auxiliary classifier GANs**](https://arxiv.org/abs/1610.09585). In ICML, 2017.
-3. T. Kaneko, T. Harada. [**Noise Robust Generative Adversarial Networks**](https://takuhirok.github.io/NR-GAN/). In CVPR, 2020.
+1. T. Kaneko, Y. Ushiku, and T. Harada. [**Label-Noise Robust Generative Adversarial Networks**](https://takuhirok.github.io/rGAN/), In CVPR, 2019.
+2. A. Odena, C. Olah, and J. Shlens. [**Conditional Image Synthesis with Auxiliary Classifier GANs**](https://arxiv.org/abs/1610.09585). In ICML, 2017.
+3. T. Kaneko and T. Harada. [**Noise Robust Generative Adversarial Networks**](https://takuhirok.github.io/NR-GAN/). In CVPR, 2020.
+4. T. Kaneko and T. Harada. [**Blur, Noise, and Compression Robust Generative Adversarial Networks**](https://takuhirok.github.io/BNCR-GAN/). In CVPR, 2021.
